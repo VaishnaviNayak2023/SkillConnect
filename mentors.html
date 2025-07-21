@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillConnect - Mentors</title>
+    <!-- Tailwind CSS CDN for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- External CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar relative">
+        <!-- Logo Section -->
+        <div class="logo-container">
+            <span class="logo-text" data-key="logoText"><span>S</span>SkillConnect</span>
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <div class="nav-links hidden md:flex items-center space-x-7">
+            <a href="index.html" data-key="home">Home</a>
+            <a href="about.html" data-key="aboutUs">About Us</a>
+            <a href="courses.html" data-key="courses">Courses</a>
+            <a href="mentors.html" data-key="mentors">Mentors</a>
+            <a href="jobs.html" data-key="jobs">Jobs</a>
+            <a href="contact.html" data-key="contact">Contact</a>
+
+            <!-- More Dropdown -->
+            <div class="more-dropdown">
+                <a href="#" class="dropbtn" data-key="more">More <i class="fas fa-caret-down ml-1"></i></a>
+                <div class="more-dropdown-content">
+                    <!-- Language Selection -->
+                    <div class="language-selector">
+                        <a href="#" class="lang-option" data-lang="en">English <i class="fas fa-check ml-1 text-blue-500 hidden" id="lang-check-en"></i></a>
+                        <a href="#" class="lang-option" data-lang="kok">कोंकणी <i class="fas fa-check ml-1 text-blue-500 hidden" id="lang-check-kok"></i></a>
+                        <a href="#" class="lang-option" data-lang="mr">मराठी <i class="fas fa-check ml-1 text-blue-500 hidden" id="lang-check-mr"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desktop Login Button -->
+        <div class="desktop-only-login hidden md:block">
+            <button class="login-button" data-key="login">Login</button>
+        </div>
+
+        <!-- Hamburger Menu Icon (Mobile) -->
+        <div class="hamburger-menu md:hidden" id="hamburger-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Mobile Navigation Links (Initially hidden, controlled by JS) -->
+        <div class="mobile-nav-links md:hidden" id="mobile-menu">
+            <a href="index.html" data-key="home">Home</a>
+            <a href="about.html" data-key="aboutUs">About Us</a>
+            <a href="courses.html" data-key="courses">Courses</a>
+            <a href="mentors.html" data-key="mentors">Mentors</a>
+            <a href="jobs.html" data-key="jobs">Jobs</a>
+            <a href="contact.html" data-key="contact">Contact</a>
+            <!-- Language Selection in Mobile -->
+            <div class="mobile-language-selector">
+                <a href="#" class="lang-option" data-lang="en">English <i class="fas fa-check ml-1 text-blue-500 hidden" id="mobile-lang-check-en"></i></a>
+                <a href="#" class="lang-option" data-lang="kok">कोंकणी <i class="fas fa-check ml-1 text-blue-500 hidden" id="mobile-lang-check-kok"></i></a>
+                <a href="#" class="lang-option" data-lang="mr">मराठी <i class="fas fa-check ml-1 text-blue-500 hidden" id="mobile-lang-check-mr"></i></a>
+            </div>
+            <a href="#" data-key="login">Login</a>
+        </div>
+    </nav>
+
+    <!-- Mentors Hero Section -->
+    <section class="mentors-hero-section">
+        <div class="mentors-hero-content">
+            <h1 class="mentors-hero-title" data-key="mentorsHeroTitle">Connect with Mentors</h1>
+            <p class="mentors-hero-description" data-key="mentorsHeroDescription">
+                Learn from industry experts and experienced professionals who understand
+                unique opportunities and challenges.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mentors Listing Section -->
+    <section class="mentors-listing-section">
+        <div class="mentors-search-filter-container">
+            <div class="mentors-search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search mentors or expertise..." class="search-input" data-key="mentorSearchPlaceholder">
+            </div>
+            <div class="mentors-filters-grid">
+                <div class="filter-dropdown">
+                    <label for="industry-filter" data-key="industryLabel">All Industries</label>
+                    <select id="industry-filter" class="filter-select">
+                        <option value="all" data-key="all">All Industries</option>
+                        <option value="tourism" data-key="tourismIndustry">Tourism</option>
+                        <option value="digital" data-key="digitalIndustry">Digital Marketing</option>
+                        <option value="arts" data-key="artsIndustry">Arts & Crafts</option>
+                        <option value="environmental" data-key="environmentalIndustry">Environmental</option>
+                        <option value="agriculture" data-key="agricultureIndustry">Agriculture</option>
+                        <option value="hospitality" data-key="hospitalityIndustry">Hospitality</option>
+                        <option value="technology" data-key="technologyIndustry">Technology</option>
+                    </select>
+                </div>
+                <div class="filter-dropdown">
+                    <label for="mentor-location-filter" data-key="locationLabel">All Locations</label>
+                    <select id="mentor-location-filter" class="filter-select">
+                        <option value="all" data-key="all">All Locations</option>
+                        <option value="panaji" data-key="panajiOption">Panaji</option>
+                        <option value="margao" data-key="margaoOption">Margao</option>
+                        <option value="vasco" data-key="vascoOption">Vasco da Gama</option>
+                        <option value="bicholim" data-key="bicholimOption">Bicholim</option>
+                        <option value="ponda" data-key="pondaOption">Ponda</option>
+                        <option value="dona-paula" data-key="donaPaulaOption">Dona Paula</option>
+                        <option value="sangueum" data-key="sangueumOption">Sangueum</option>
+                        <option value="porvorim" data-key="porvorimOption">Porvorim</option>
+                    </select>
+                </div>
+            </div>
+            <button class="clear-filters-button" data-key="clearFilters">Clear Filters</button>
+        </div>
+
+        <div class="mentors-found-text-container">
+            <p class="mentors-found-text" data-key="mentorsFoundText">6 mentors found</p>
+        </div>
+
+        <div class="mentor-grid">
+            <!-- Mentor Card 1 -->
+            <div class="mentor-card">
+                <div class="mentor-avatar">PS</div>
+                <h3 class="mentor-name" data-key="mentor1Name">Priya Sharma</h3>
+                <p class="mentor-role" data-key="mentor1Role">Sustainable Tourism Director at Goa Tourism Board</p>
+                <p class="mentor-location" data-key="mentor1Location"><i class="fas fa-map-marker-alt mr-1"></i> Panaji</p>
+                <p class="mentor-bio" data-key="mentor1Bio">Leading sustainable tourism initiatives across Goa with 15+ years of experience in hospitality and eco-tourism development.</p>
+                <div class="mentor-skills">
+                    <span class="mentor-skill-tag" data-key="sustainableTourismSkill">Sustainable Tourism</span>
+                    <span class="mentor-skill-tag" data-key="hospitalityManagementSkill">Hospitality Management</span>
+                    <span class="mentor-skill-tag" data-key="ecoTourismSkill">Eco-Tourism</span>
+                    <span class="mentor-skill-tag more-skills" data-key="plusOneMore">+1 more</span>
+                </div>
+                <div class="mentor-details">
+                    <div class="detail-item">
+                        <i class="fas fa-star text-yellow-400"></i> <span data-key="mentor1Rating">4.9</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-users"></i> <span data-key="mentor1Mentees">45 mentees</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-calendar-alt"></i> <span data-key="mentor1Experience">15+ years</span>
+                    </div>
+                </div>
+                <p class="availability-text" data-key="mentor1Availability">Available for virtual sessions</p>
+                <a href="#" class="connect-button" data-key="connectWithMentor">Connect with Priya</a>
+            </div>
+
+            <!-- Mentor Card 2 -->
+            <div class="mentor-card">
+                <div class="mentor-avatar">RN</div>
+                <h3 class="mentor-name" data-key="mentor2Name">Rajesh Naik</h3>
+                <p class="mentor-role" data-key="mentor2Role">Digital Marketing Specialist at Freelance Consultant</p>
+                <p class="mentor-location" data-key="mentor2Location"><i class="fas fa-map-marker-alt mr-1"></i> Margao</p>
+                <p class="mentor-bio" data-key="mentor2Bio">Helping Goan businesses grow online with data-driven digital marketing strategies and social media expertise.</p>
+                <div class="mentor-skills">
+                    <span class="mentor-skill-tag" data-key="socialMediaMarketingSkill">Social Media Marketing</span>
+                    <span class="mentor-skill-tag" data-key="seoSkill">SEO</span>
+                    <span class="mentor-skill-tag" data-key="contentStrategySkill">Content Strategy</span>
+                    <span class="mentor-skill-tag more-skills" data-key="plusOneMore">+1 more</span>
+                </div>
+                <div class="mentor-details">
+                    <div class="detail-item">
+                        <i class="fas fa-star text-yellow-400"></i> <span data-key="mentor2Rating">4.8</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-users"></i> <span data-key="mentor2Mentees">38 mentees</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-calendar-alt"></i> <span data-key="mentor2Experience">12+ years</span>
+                    </div>
+                </div>
+                <p class="availability-text" data-key="mentor2Availability">Open to in-person meetings</p>
+                <a href="#" class="connect-button" data-key="connectWithMentor">Connect with Rajesh</a>
+            </div>
+
+            <!-- Mentor Card 3 -->
+            <div class="mentor-card">
+                <div class="mentor-avatar">DMF</div>
+                <h3 class="mentor-name" data-key="mentor3Name">Dr. Maria Fernandes</h3>
+                <p class="mentor-role" data-key="mentor3Role">Marine Conservation Scientist at Goa University</p>
+                <p class="mentor-location" data-key="mentor3Location"><i class="fas fa-map-marker-alt mr-1"></i> Dona Paula</p>
+                <p class="mentor-bio" data-key="mentor3Bio">Research scientist specializing in marine biodiversity conservation and sustainable fishing practices in Goan waters.</p>
+                <div class="mentor-skills">
+                    <span class="mentor-skill-tag" data-key="marineBiologySkill">Marine Biology</span>
+                    <span class="mentor-skill-tag" data-key="conservationSkill">Conservation</span>
+                    <span class="mentor-skill-tag" data-key="researchMethodsSkill">Research Methods</span>
+                    <span class="mentor-skill-tag more-skills" data-key="plusOneMore">+1 more</span>
+                </div>
+                <div class="mentor-details">
+                    <div class="detail-item">
+                        <i class="fas fa-star text-yellow-400"></i> <span data-key="mentor3Rating">4.9</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-users"></i> <span data-key="mentor3Mentees">28 mentees</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-calendar-alt"></i> <span data-key="mentor3Experience">20+ years</span>
+                    </div>
+                </div>
+                <p class="availability-text" data-key="mentor3Availability">Available for research guidance</p>
+                <a href="#" class="connect-button" data-key="connectWithMentor">Connect with Dr.</a>
+            </div>
+
+            <!-- Mentor Card 4 -->
+            <div class="mentor-card">
+                <div class="mentor-avatar">CD</div>
+                <h3 class="mentor-name" data-key="mentor4Name">Carlos D'Souza</h3>
+                <p class="mentor-role" data-key="mentor4Role">Traditional Craft Master at Goan Heritage Crafts</p>
+                <p class="mentor-location" data-key="mentor4Location"><i class="fas fa-map-marker-alt mr-1"></i> Bicholim</p>
+                <p class="mentor-bio" data-key="mentor4Bio">Master craftsman preserving and teaching traditional Goan handicrafts including pottery, weaving, and woodwork.</p>
+                <div class="mentor-skills">
+                    <span class="mentor-skill-tag" data-key="traditionalCraftsSkill">Traditional Crafts</span>
+                    <span class="mentor-skill-tag" data-key="potterySkill">Pottery</span>
+                    <span class="mentor-skill-tag" data-key="woodworkingSkill">Woodworking</span>
+                    <span class="mentor-skill-tag more-skills" data-key="plusOneMore">+1 more</span>
+                </div>
+                <div class="mentor-details">
+                    <div class="detail-item">
+                        <i class="fas fa-star text-yellow-400"></i> <span data-key="mentor4Rating">5</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-users"></i> <span data-key="mentor4Mentees">67 mentees</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-calendar-alt"></i> <span data-key="mentor4Experience">25+ years</span>
+                    </div>
+                </div>
+                <p class="availability-text" data-key="mentor4Availability">Workshop sessions available</p>
+                <a href="#" class="connect-button" data-key="connectWithMentor">Connect with Carlos</a>
+            </div>
+
+            <!-- Mentor Card 5 -->
+            <div class="mentor-card">
+                <div class="mentor-avatar">AP</div>
+                <h3 class="mentor-name" data-key="mentor5Name">Anjali Parsekar</h3>
+                <p class="mentor-role" data-key="mentor5Role">Organic Farming Consultant at Green Goa Initiative</p>
+                <p class="mentor-location" data-key="mentor5Location"><i class="fas fa-map-marker-alt mr-1"></i> Sangueum</p>
+                <p class="mentor-bio" data-key="mentor5Bio">Promoting sustainable agricultural practices and organic farming techniques across rural Goa.</p>
+                <div class="mentor-skills">
+                    <span class="mentor-skill-tag" data-key="organicFarmingSkill">Organic Farming</span>
+                    <span class="mentor-skill-tag" data-key="sustainableAgricultureSkill">Sustainable Agriculture</span>
+                    <span class="mentor-skill-tag" data-key="permacultureSkill">Permaculture</span>
+                    <span class="mentor-skill-tag more-skills" data-key="plusOneMore">+1 more</span>
+                </div>
+                <div class="mentor-details">
+                    <div class="detail-item">
+                        <i class="fas fa-star text-yellow-400"></i> <span data-key="mentor5Rating">4.7</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-users"></i> <span data-key="mentor5Mentees">52 mentees</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-calendar-alt"></i> <span data-key="mentor5Experience">18+ years</span>
+                    </div>
+                </div>
+                <p class="availability-text" data-key="mentor5Availability">Field visits and virtual sessions</p>
+                <a href="#" class="connect-button" data-key="connectWithMentor">Connect with Anjali</a>
+            </div>
+
+            <!-- Mentor Card 6 -->
+            <div class="mentor-card">
+                <div class="mentor-avatar">VK</div>
+                <h3 class="mentor-name" data-key="mentor6Name">Vikram Kamat</h3>
+                <p class="mentor-role" data-key="mentor6Role">Tech Entrepreneur at GoaTech Solutions</p>
+                <p class="mentor-location" data-key="mentor6Location"><i class="fas fa-map-marker-alt mr-1"></i> Porvorim</p>
+                <p class="mentor-bio" data-key="mentor6Bio">Serial entrepreneur building tech solutions for local businesses and startups in Goa's growing tech ecosystem.</p>
+                <div class="mentor-skills">
+                    <span class="mentor-skill-tag" data-key="entrepreneurshipSkill">Entrepreneurship</span>
+                    <span class="mentor-skill-tag" data-key="softwareDevelopmentSkill">Software Development</span>
+                    <span class="mentor-skill-tag" data-key="businessStrategySkill">Business Strategy</span>
+                    <span class="mentor-skill-tag more-skills" data-key="plusOneMore">+1 more</span>
+                </div>
+                <div class="mentor-details">
+                    <div class="detail-item">
+                        <i class="fas fa-star text-yellow-400"></i> <span data-key="mentor6Rating">4.8</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-users"></i> <span data-key="mentor6Mentees">34 mentees</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-calendar-alt"></i> <span data-key="mentor6Experience">14+ years</span>
+                    </div>
+                </div>
+                <p class="availability-text" data-key="mentor6Availability">Flexible scheduling</p>
+                <a href="#" class="connect-button" data-key="connectWithMentor">Connect with Vikram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section (You would include your full footer here) -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <!-- Column 1: Logo and Description -->
+            <div class="footer-column">
+                <div class="footer-logo-container">
+                    <div class="footer-logo-icon">G</div>
+                    <span class="footer-logo-text" data-key="footerLogoText">SkillConnect</span>
+                </div>
+                <p class="footer-description" data-key="footerDescription">
+                    Empowering Goan communities through quality education, skill development, and career opportunities aligned with sustainable development goals.
+                </p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-column">
+                <h4 class="footer-heading" data-key="quickLinksHeading">Quick Links</h4>
+                <div class="footer-links">
+                    <a href="#index.html" data-key="home">Home</a>
+                    <a href="#about.html" data-key="aboutUs">About Us</a>
+                    <a href="#courses.html" data-key="courses">Courses</a>
+                    <a href="#mentors.html" data-key="mentors">Mentors</a>
+                    <a href="#jobs.html" data-key="jobs">Jobs</a>
+                </div>
+            </div>
+
+            <!-- Column 3: Support -->
+            <div class="footer-column">
+                <h4 class="footer-heading" data-key="supportHeading">Support</h4>
+                <div class="footer-links">
+                    <a href="#" data-key="helpCenter">Help Center</a>
+                    <a href="#" data-key="privacyPolicy">Privacy Policy</a>
+                    <a href="#" data-key="termsOfService">Terms of Service</a>
+                    <a href="#contact.html" data-key="contactUs">Contact Us</a>
+                </div>
+            </div>
+
+            <!-- Column 4: Contact Info -->
+            <div class="footer-column">
+                <h4 class="footer-heading" data-key="contactInfoHeading">Contact Info</h4>
+                <div class="footer-links">
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i> <span data-key="contactEmail">hello@goaskillup.com</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone-alt"></i> <span data-key="contactPhone">+91 832 XXXX XXXX</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i> <span data-key="contactAddress">Panaji, Goa, India</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p data-key="copyrightText">&copy; 2025 SkillConnect. All rights reserved. Committed to Quality Education (SDG 4).</p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

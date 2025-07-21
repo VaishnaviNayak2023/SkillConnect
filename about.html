@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>SkillConnect</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- font awesome cdn -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- custom css -->
+        <link rel = "stylesheet" href = "utility.css">
+        <link rel = "stylesheet" href = "correctfeatures.css">
+        <link rel = "stylesheet" href = "style.css">
+        <link rel = "stylesheet" href = "responsiveness.css">
+    </head>
+    <body>
+        <nav class="navbar relative">
+            <!-- Logo Section -->
+            <div class="logo-container">   
+                <span class="logo-text" data-key="logoText"><span>S</span>killConnect</span>
+            </div>
+
+            <!-- Desktop Navigation Links -->
+            <div class="nav-links hidden md:flex items-center space-x-7">
+                <a href="index.html" data-key="home">Home</a>
+                <a href="about.html" data-key="aboutUs">About Us</a>
+                <a href="courses.html" data-key="courses">Courses</a>
+                <a href="mentors.html" data-key="mentors">Mentors</a>
+                <a href="jobs.html" data-key="jobs">Jobs</a>
+                <a href="contact.html" data-key="contact">Contact</a>
+
+                <!-- More Dropdown -->
+                <div class="more-dropdown">
+                    <a href="#" class="dropbtn" data-key="more">More <i class="fas fa-caret-down ml-1"></i></a>
+                    <div class="more-dropdown-content">
+                        <!-- Language Selection -->
+                        <div class="language-selector">
+                            <a href="#" class="lang-option" data-lang="en">English <i class="fas fa-check ml-1 text-blue-500 hidden" id="lang-check-en"></i></a>
+                            <a href="#" class="lang-option" data-lang="kok">कोंकणी <i class="fas fa-check ml-1 text-blue-500 hidden" id="lang-check-kok"></i></a>
+                            <a href="#" class="lang-option" data-lang="mr">मराठी <i class="fas fa-check ml-1 text-blue-500 hidden" id="lang-check-mr"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Login Button -->
+            <div class="desktop-only-login hidden md:block">
+                <button class="login-button" data-key="login">Login</button>
+            </div>
+
+            <!-- Hamburger Menu Icon (Mobile) -->
+            <div class="hamburger-menu md:hidden" id="hamburger-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <!-- Mobile Navigation Links (Initially hidden, controlled by JS) -->
+            <div class="mobile-nav-links md:hidden" id="mobile-menu">
+                <a href="#index.html" data-key="home">Home</a>
+                <a href="#about.html" data-key="aboutUs">About Us</a>
+                <a href="#courses.html" data-key="courses">Courses</a>
+                <a href="#mentors.html" data-key="mentors">Mentors</a>
+                <a href="#jobs.html" data-key="jobs">Jobs</a>
+                <a href="#contact.html" data-key="contact">Contact</a>
+                <!-- Language Selection in Mobile -->
+                <div class="mobile-language-selector">
+                    <a href="#" class="lang-option" data-lang="en">English <i class="fas fa-check ml-1 text-blue-500 hidden" id="mobile-lang-check-en"></i></a>
+                    <a href="#" class="lang-option" data-lang="kok">कोंकणी <i class="fas fa-check ml-1 text-blue-500 hidden" id="mobile-lang-check-kok"></i></a>
+                    <a href="#" class="lang-option" data-lang="mr">मराठी <i class="fas fa-check ml-1 text-blue-500 hidden" id="mobile-lang-check-mr"></i></a>
+                </div>
+                <a href="#" data-key="login">Login</a>
+            </div>
+        </nav>
+
+        
+        <!-- About Us Section -->
+        <section class="about-section" id="about-us-section">
+            <div class="about-content">
+                <h2 class="about-title" data-key="aboutGoaSkillUpConnectTitle">About <span>SkillConnect</span></h2>
+                <p class="about-description" data-key="aboutGoaSkillUpConnectDescription">
+                    We're on a mission to bridge skill gaps and foster economic empowerment in Goa through quality
+                    education, innovative training programs, and meaningful mentorship connections.
+                </p>
+            </div>
+        </section>
+
+        <!-- Mission & Vision Section -->
+        <section class="mission-vision-section" id="mission-vision-section">
+            <div class="mission-vision-content">
+                <div class="mission-vision-text">
+                    <div class="mv-item">
+                        <h3 class="mv-title" data-key="ourMissionTitle">
+                            <i class="fas fa-bullseye mv-icon"></i> Our Mission
+                        </h3>
+                        <p class="mv-description" data-key="ourMissionDescription">
+                            To empower Goan communities by providing accessible, high-quality skill
+                            development opportunities that align with the region's economic needs and
+                            cultural values, contributing to the achievement of Sustainable Development
+                            Goal 4: Quality Education.
+                        </p>
+                    </div>
+                    <div class="mv-item">
+                        <h3 class="mv-title" data-key="ourVisionTitle">
+                            <i class="fas fa-eye mv-icon"></i> Our Vision
+                        </h3>
+                        <p class="mv-description" data-key="ourVisionDescription">
+                            To become Goa's leading platform for skill development and career
+                            advancement, creating a thriving ecosystem where traditional knowledge meets
+                            modern innovation, and every individual has the opportunity to reach their full
+                            potential.
+                        </p>
+                    </div>
+                </div>
+                <div class="why-goaskillup-card">
+                    <h3 class="why-goaskillup-title" data-key="whyGoaSkillUpConnectTitle">Why SkillConnect?</h3>
+                    <ul class="why-goaskillup-list">
+                        <li data-key="whyGoaSkillUpConnectItem1">
+                            <i class="fas fa-globe-americas mr-2"></i> Goa-centric curriculum designed for local relevance
+                        </li>
+                        <li data-key="whyGoaSkillUpConnectItem2">
+                            <i class="fas fa-user-friends mr-2"></i> Direct mentorship from industry professionals
+                        </li>
+                        <li data-key="whyGoaSkillUpConnectItem3">
+                            <i class="fas fa-language mr-2"></i> Multilingual support in English, Konkani, and Marathi
+                        </li>
+                        <li data-key="whyGoaSkillUpConnectItem4">
+                            <i class="fas fa-certificate mr-2"></i> Micro-credentialing for flexible skill validation
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values Section -->
+        <section class="core-values-section" id="core-values-section">
+            <h2 class="core-values-title" data-key="coreValuesTitle">Our Core Values</h2>
+            <p class="core-values-description" data-key="coreValuesDescription">
+                These principles guide everything we do at SkillConnect
+            </p>
+            <div class="values-grid">
+                <!-- Value Card 1: Quality Education -->
+                <div class="value-card">
+                    <div class="value-icon-container">
+                        <i class="fas fa-bullseye value-icon quality-education"></i>
+                    </div>
+                    <h3 class="value-title" data-key="qualityEducationTitle">Quality Education</h3>
+                    <p class="value-description" data-key="qualityEducationDescription">
+                        Committed to delivering high-quality, relevant education aligned
+                        with SDG 4 for sustainable development.
+                    </p>
+                </div>
+
+                <!-- Value Card 2: Local Impact -->
+                <div class="value-card">
+                    <div class="value-icon-container">
+                        <i class="fas fa-globe-americas value-icon local-impact"></i>
+                    </div>
+                    <h3 class="value-title" data-key="localImpactTitle">Local Impact</h3>
+                    <p class="value-description" data-key="localImpactDescription">
+                        Focused on addressing Goa's unique economic needs while preparing
+                        learners for global opportunities.
+                    </p>
+                </div>
+
+                <!-- Value Card 3: Community-Driven -->
+                <div class="value-card">
+                    <div class="value-icon-container">
+                        <i class="fas fa-users value-icon community-driven"></i>
+                    </div>
+                    <h3 class="value-title" data-key="communityDrivenTitle">Community-Driven</h3>
+                    <p class="value-description" data-key="communityDrivenDescription">
+                        Built by Goans, for Goans - fostering local talent and preserving cultural
+                        values while embracing innovation.
+                    </p>
+                </div>
+
+                <!-- Value Card 4: Inclusive Growth -->
+                <div class="value-card">
+                    <div class="value-icon-container">
+                        <i class="fas fa-heart value-icon inclusive-growth"></i>
+                    </div>
+                    <h3 class="value-title" data-key="inclusiveGrowthTitle">Inclusive Growth</h3>
+                    <p class="value-description" data-key="inclusiveGrowthDescription">
+                        Ensuring equal access to skill development opportunities across
+                        all communities in Goa.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet Our Team Section -->
+        <section class="team-section" id="team-section">
+            <h2 class="team-title" data-key="teamTitle">Meet Our Team</h2>
+            <p class="team-description" data-key="teamDescription">
+                Passionate educators and industry professionals dedicated to Goa's growth
+            </p>
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-card">
+                    <div class="member-avatar" data-key="member1Initials">DMF</div>
+                    <h3 class="member-name" data-key="member1Name">Dr. Maria Fernandes</h3>
+                    <p class="member-role" data-key="member1Role">Founder & CEO</p>
+                    <p class="member-specialty" data-key="member1Specialty">Educational Technology</p>
+                    <p class="member-bio" data-key="member1Bio">
+                        Former professor at Goa University with 15+ years in skill development.
+                    </p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-card">
+                    <div class="member-avatar" data-key="member2Initials">RK</div>
+                    <h3 class="member-name" data-key="member2Name">Rajesh Kamat</h3>
+                    <p class="member-role" data-key="member2Role">Head of Partnerships</p>
+                    <p class="member-specialty" data-key="member2Specialty">Industry Relations</p>
+                    <p class="member-bio" data-key="member2Bio">
+                        Connecting local businesses with skilled talent across Goa.
+                    </p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-card">
+                    <div class="member-avatar" data-key="member3Initials">PD</div>
+                    <h3 class="member-name" data-key="member3Name">Priya Dessai</h3>
+                    <p class="member-role" data-key="member3Role">Community Outreach</p>
+                    <p class="member-specialty" data-key="member3Specialty">Social Impact</p>
+                    <p class="member-bio" data-key="member3Bio">
+                        Passionate about inclusive education and community empowerment.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Impact Goals Section -->
+        <section class="impact-goals-section" id="impact-goals-section">
+            <h2 class="impact-goals-title" data-key="impactGoalsTitle">Our Impact Goals</h2>
+            <p class="impact-goals-description" data-key="impactGoalsDescription">
+                By 2030, we aim to have trained 10,000+ Goans in relevant skills, facilitated 500+
+                mentorship connections, and supported 1,000+ local job placements, contributing
+                significantly to Goa's sustainable economic development.
+            </p>
+            <div class="impact-stats-grid">
+                <div class="impact-stat-item">
+                    <div class="impact-stat-number" data-key="skilledGraduatesCount">10,000+</div>
+                    <div class="impact-stat-label" data-key="skilledGraduatesLabel">Skilled Graduates</div>
+                </div>
+                <div class="impact-stat-item">
+                    <div class="impact-stat-number" data-key="mentorshipConnectionsCount">500+</div>
+                    <div class="impact-stat-label" data-key="mentorshipConnectionsLabel">Mentorship Connections</div>
+                </div>
+                <div class="impact-stat-item">
+                    <div class="impact-stat-number" data-key="jobPlacementsCount">1,000+</div>
+                    <div class="impact-stat-label" data-key="jobPlacementsLabel">Job Placements</div>
+                </div>
+            </div>
+            <a href="#" class="impact-button" data-key="joinOurMissionButton">
+                Join Our Mission <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </section>
+
+        
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="footer-grid">
+                <!-- Column 1: Logo and Description -->
+                <div class="footer-column">
+                    <div class="footer-logo-container">
+                        <div class="footer-logo-icon">G</div>
+                        <span class="footer-logo-text" data-key="footerLogoText">SkillConnect</span>
+                    </div>
+                    <p class="footer-description" data-key="footerDescription">
+                        Empowering Goan communities through quality education, skill development, and career opportunities aligned with sustainable development goals.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-column">
+                    <h4 class="footer-heading" data-key="quickLinksHeading">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#index.html" data-key="home">Home</a>
+                        <a href="#about.html" data-key="aboutUs">About Us</a>
+                        <a href="#courses.html" data-key="courses">Courses</a>
+                        <a href="#mentors.html" data-key="mentors">Mentors</a>
+                        <a href="#jobs.html" data-key="jobs">Jobs</a>
+                    </div>
+                </div>
+
+                <!-- Column 3: Support -->
+                <div class="footer-column">
+                    <h4 class="footer-heading" data-key="supportHeading">Support</h4>
+                    <div class="footer-links">
+                        <a href="#" data-key="helpCenter">Help Center</a>
+                        <a href="#" data-key="privacyPolicy">Privacy Policy</a>
+                        <a href="#" data-key="termsOfService">Terms of Service</a>
+                        <a href="#contact.html" data-key="contactUs">Contact Us</a>
+                    </div>
+                </div>
+
+                <!-- Column 4: Contact Info -->
+                <div class="footer-column">
+                    <h4 class="footer-heading" data-key="contactInfoHeading">Contact Info</h4>
+                    <div class="footer-links">
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i> <span data-key="contactEmail">hello@SkillConnect.com</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-phone-alt"></i> <span data-key="contactPhone">+91 832 XXXX XXXX</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-map-marker-alt"></i> <span data-key="contactAddress">Panaji, Goa, India</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p data-key="copyrightText">&copy; 2025 SkillConnect. All rights reserved. Committed to Quality Education (SDG 4).</p>
+            </div>
+        </footer>
+
+        <!-- js -->
+        <script src = "script.js"></script>
+        <script>
+            
+        </script>
+    </body>
+</html>
+
+

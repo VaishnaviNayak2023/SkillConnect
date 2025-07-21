@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillConnect</title>
+    <!-- Tailwind CSS CDN for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- External CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar relative">
+        <!-- Logo Section -->
+        <div class="logo-container">
+            <span class="logo-text" data-key="logoText"><span>S</span>killConnect</span>
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <div class="nav-links hidden md:flex items-center space-x-7">
+            <a href="index.html" data-key="home">Home</a>
+            <a href="about.html" data-key="aboutUs">About Us</a>
+            <a href="courses.html" data-key="courses">Courses</a>
+            <a href="mentors.html" data-key="mentors">Mentors</a>
+            <a href="jobs.html" data-key="jobs">Jobs</a>
+            <a href="contact.html" data-key="contact">Contact</a>
+
+            <!-- More Dropdown -->
+            <div class="more-dropdown">
+                <a href="#" class="dropbtn" data-key="more">More <i class="fas fa-caret-down ml-1"></i></a>
+                <div class="more-dropdown-content">
+                    <!-- Language Selection -->
+                    <div class="language-selector">
+                        <a href="#" class="lang-option" data-lang="en">English <i class="fas fa-check ml-1 text-blue-500 hidden" id="lang-check-en"></i></a>
+                        <a href="#" class="lang-option" data-lang="kok">कोंकणी <i class="fas fa-check ml-1 text-blue-500 hidden" id="lang-check-kok"></i></a>
+                        <a href="#" class="lang-option" data-lang="mr">मराठी <i class="fas fa-check ml-1 text-blue-500 hidden" id="lang-check-mr"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desktop Login Button -->
+        <div class="desktop-only-login hidden md:block">
+            <button class="login-button" data-key="login">Login</button>
+        </div>
+
+        <!-- Hamburger Menu Icon (Mobile) -->
+        <div class="hamburger-menu md:hidden" id="hamburger-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Mobile Navigation Links (Initially hidden, controlled by JS) -->
+        <div class="mobile-nav-links md:hidden" id="mobile-menu">
+            <a href="#index.html">Home</a>
+            <a href="#about.html">About Us</a>
+            <a href="#courses.html">Courses</a>
+            <a href="#mentors.html">Mentors</a>
+            <a href="#jobs.html">Jobs</a>
+            <a href="#contact.html">Contact</a>
+            <!-- Language Selection in Mobile -->
+            <div class="mobile-language-selector">
+                <a href="#" class="lang-option" data-lang="en">English <i class="fas fa-check ml-1 text-blue-500 hidden" id="mobile-lang-check-en"></i></a>
+                <a href="#" class="lang-option" data-lang="kok">कोंकणी <i class="fas fa-check ml-1 text-blue-500 hidden" id="mobile-lang-check-kok"></i></a>
+                <a href="#" class="lang-option" data-lang="mr">मराठी <i class="fas fa-check ml-1 text-blue-500 hidden" id="mobile-lang-check-mr"></i></a>
+            </div>
+            <a href="#" data-key="login">Login</a>
+        </div>
+    </nav>
+
+    <!-- Jobs Hero Section -->
+    <section class="jobs-hero-section">
+        <div class="jobs-hero-content">
+            <h1 class="jobs-hero-title" data-key="jobsHeroTitle">Goa Job Opportunities</h1>
+            <p class="jobs-hero-description" data-key="jobsHeroDescription">
+                Discover career opportunities that match your skills and contribute to Goa's growing economy.
+            </p>
+        </div>
+    </section>
+
+    <!-- Job Listing Section -->
+    <section class="jobs-listing-section">
+        <div class="jobs-search-filter-container">
+            <div class="jobs-search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search jobs, companies, or skills..." class="search-input" data-key="jobSearchPlaceholder">
+            </div>
+            <div class="jobs-filters-grid">
+                <div class="filter-dropdown">
+                    <label for="job-category-filter" data-key="allCategoriesLabel">All Categories</label>
+                    <select id="job-category-filter" class="filter-select">
+                        <option value="all" data-key="all">All Categories</option>
+                        <option value="tourism" data-key="tourismOption">Tourism</option>
+                        <option value="digital" data-key="digitalSkillsOption">Digital Skills</option>
+                        <option value="arts" data-key="artsCraftsOption">Arts & Crafts</option>
+                        <option value="environmental" data-key="environmentalOption">Environmental</option>
+                        <option value="agriculture" data-key="agricultureOption">Agriculture</option>
+                        <option value="hospitality" data-key="hospitalityOption">Hospitality</option>
+                        <option value="technology" data-key="technologyOption">Technology</option>
+                    </select>
+                </div>
+                <div class="filter-dropdown">
+                    <label for="job-location-filter" data-key="allLocationsLabel">All Locations</label>
+                    <select id="job-location-filter" class="filter-select">
+                        <option value="all" data-key="all">All Locations</option>
+                        <option value="panaji" data-key="panajiOption">Panaji</option>
+                        <option value="margao" data-key="margaoOption">Margao</option>
+                        <option value="vasco" data-key="vascoOption">Vasco da Gama</option>
+                        <option value="bicholim" data-key="bicholimOption">Bicholim</option>
+                        <option value="ponda" data-key="pondaOption">Ponda</option>
+                        <option value="dona-paula" data-key="donaPaulaOption">Dona Paula</option>
+                        <option value="sangueum" data-key="sangueumOption">Sangueum</option>
+                        <option value="porvorim" data-key="porvorimOption">Porvorim</option>
+                    </select>
+                </div>
+                <div class="filter-dropdown">
+                    <label for="job-type-filter" data-key="allTypesLabel">All Types</label>
+                    <select id="job-type-filter" class="filter-select">
+                        <option value="all" data-key="all">All Types</option>
+                        <option value="full-time" data-key="fullTimeOption">Full-time</option>
+                        <option value="part-time" data-key="partTimeOption">Part-time</option>
+                        <option value="contract" data-key="contractOption">Contract</option>
+                        <option value="internship" data-key="internshipOption">Internship</option>
+                        <option value="remote" data-key="remoteOption">Remote</option>
+                    </select>
+                </div>
+            </div>
+            <button class="clear-filters-button" data-key="clearFilters">Clear Filters</button>
+        </div>
+
+        <div class="jobs-found-text-container">
+            <p class="jobs-found-text" data-key="jobsFoundText">8 jobs found</p>
+        </div>
+
+        <div class="job-grid">
+            <!-- Job Card 1 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <h3 class="job-title" data-key="job1Title">Sustainable Tourism Manager</h3>
+                    <span class="job-company" data-key="job1Company">Goa Tourism Development Corporation</span>
+                    <span class="job-location" data-key="job1Location"><i class="fas fa-map-marker-alt mr-1"></i> Panaji</span>
+                </div>
+                <div class="job-tags">
+                    <span class="job-tag" data-key="fullTimeTag">Full-time</span>
+                    <span class="job-tag" data-key="tourismTag">Tourism</span>
+                    <span class="job-tag" data-key="experienceTag">15+ Years</span>
+                </div>
+                <p class="job-description" data-key="job1Desc">Lead sustainable tourism initiatives across Goa, developing eco-friendly travel packages and preserving Goa's natural beauty and cultural heritage.</p>
+                <div class="job-skills">
+                    <span class="job-skill-tag" data-key="sustainableTourismSkill">Sustainable Tourism</span>
+                    <span class="job-skill-tag" data-key="projectManagementSkill">Project Management</span>
+                    <span class="job-skill-tag" data-key="communityEngagementSkill">Community Engagement</span>
+                    <span class="job-skill-tag" data-key="marketingSkill">Marketing</span>
+                    <span class="job-skill-tag more-skills" data-key="plusOneMore">+1 more</span>
+                </div>
+                <div class="job-footer">
+                    <span class="job-salary" data-key="job1Salary">₹18,000.00 - ₹22,000.00 per year</span>
+                    <span class="application-deadline" data-key="job1Deadline">Application deadline: 15 days left</span>
+                    <div class="job-actions">
+                        <a href="#" class="apply-button" data-key="applyNow">Apply Now</a>
+                        <a href="#" class="details-button" data-key="details">Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Card 2 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <h3 class="job-title" data-key="job2Title">Digital Marketing Specialist</h3>
+                    <span class="job-company" data-key="job2Company">Goa Tech Solutions</span>
+                    <span class="job-location" data-key="job2Location"><i class="fas fa-map-marker-alt mr-1"></i> Remote</span>
+                </div>
+                <div class="job-tags">
+                    <span class="job-tag" data-key="fullTimeTag">Full-time</span>
+                    <span class="job-tag" data-key="marketingTag">Marketing</span>
+                    <span class="job-tag" data-key="experienceTag">2+ Years</span>
+                </div>
+                <p class="job-description" data-key="job2Desc">Drive digital marketing campaigns for local businesses, focusing on social media, SEO, and content marketing.</p>
+                <div class="job-skills">
+                    <span class="job-skill-tag" data-key="socialMediaMarketingSkill">Social Media Marketing</span>
+                    <span class="job-skill-tag" data-key="seoSkill">SEO</span>
+                    <span class="job-skill-tag" data-key="googleAdsSkill">Google Ads</span>
+                    <span class="job-skill-tag more-skills" data-key="plusOneMore">+1 more</span>
+                </div>
+                <div class="job-footer">
+                    <span class="job-salary" data-key="job2Salary">₹15,000.00 - ₹18,000.00 per year</span>
+                    <span class="application-deadline" data-key="job2Deadline">Application deadline: 30 days left</span>
+                    <div class="job-actions">
+                        <a href="#" class="apply-button" data-key="applyNow">Apply Now</a>
+                        <a href="#" class="details-button" data-key="details">Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Card 3 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <h3 class="job-title" data-key="job3Title">Marine Biology Research Assistant</h3>
+                    <span class="job-company" data-key="job3Company">Goa University - Department of Marine Sciences</span>
+                    <span class="job-location" data-key="job3Location"><i class="fas fa-map-marker-alt mr-1"></i> Dona Paula</span>
+                </div>
+                <div class="job-tags">
+                    <span class="job-tag" data-key="contractTag">Contract</span>
+                    <span class="job-tag" data-key="researchTag">Research</span>
+                    <span class="job-tag" data-key="experienceTag">2+ years</span>
+                </div>
+                <p class="job-description" data-key="job3Desc">Support marine biodiversity research projects along the Goan coast, including data collection, analysis, and field work.</p>
+                <div class="job-skills">
+                    <span class="job-skill-tag" data-key="marineBiologySkill">Marine Biology</span>
+                    <span class="job-skill-tag" data-key="researchMethodsSkill">Research Methods</span>
+                    <span class="job-skill-tag" data-key="dataAnalysisSkill">Data Analysis</span>
+                    <span class="job-skill-tag" data-key="fieldWorkSkill">Field Work</span>
+                    <span class="job-skill-tag more-skills" data-key="plusOneMore">+1 more</span>
+                </div>
+                <div class="job-footer">
+                    <span class="job-salary" data-key="job3Salary">₹3,500.00 - ₹5,000.00 per month</span>
+                    <span class="application-deadline" data-key="job3Deadline">Application deadline: 3 days left</span>
+                    <div class="job-actions">
+                        <a href="#" class="apply-button" data-key="applyNow">Apply Now</a>
+                        <a href="#" class="details-button" data-key="details">Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Card 4 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <h3 class="job-title" data-key="job4Title">Traditional Crafts Instructor</h3>
+                    <span class="job-company" data-key="job4Company">Goa Heritage Foundation</span>
+                    <span class="job-location" data-key="job4Location"><i class="fas fa-map-marker-alt mr-1"></i> Bicholim</span>
+                </div>
+                <div class="job-tags">
+                    <span class="job-tag" data-key="partTimeTag">Part-time</span>
+                    <span class="job-tag" data-key="educationTag">Education</span>
+                    <span class="job-tag" data-key="experienceTag">5+ years</span>
+                </div>
+                <p class="job-description" data-key="job4Desc">Teach traditional Goan handicrafts including pottery, weaving, and woodwork to preserve cultural heritage.</p>
+                <div class="job-skills">
+                    <span class="job-skill-tag" data-key="traditionalCraftsSkill">Traditional Crafts</span>
+                    <span class="job-skill-tag" data-key="teachingSkill">Teaching</span>
+                    <span class="job-skill-tag" data-key="culturalHeritageSkill">Cultural Heritage</span>
+                    <span class="job-skill-tag" data-key="workshopManagementSkill">Workshop Management</span>
+                    <span class="job-skill-tag more-skills" data-key="plusOneMore">+1 more</span>
+                </div>
+                <div class="job-footer">
+                    <span class="job-salary" data-key="job4Salary">₹2,500.00 - ₹4,000.00 per day</span>
+                    <span class="application-deadline" data-key="job4Deadline">Application deadline: 5 days left</span>
+                    <div class="job-actions">
+                        <a href="#" class="apply-button" data-key="applyNow">Apply Now</a>
+                        <a href="#" class="details-button" data-key="details">Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Card 5 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <h3 class="job-title" data-key="job5Title">Organic Farm Manager</h3>
+                    <span class="job-company" data-key="job5Company">Green Goa Farms</span>
+                    <span class="job-location" data-key="job5Location"><i class="fas fa-map-marker-alt mr-1"></i> Sangueum</span>
+                </div>
+                <div class="job-tags">
+                    <span class="job-tag" data-key="fullTimeTag">Full-time</span>
+                    <span class="job-tag" data-key="agricultureTag">Agriculture</span>
+                    <span class="job-tag" data-key="experienceTag">4+ years</span>
+                </div>
+                <p class="job-description" data-key="job5Desc">Manage organic farming operations, implement sustainable agricultural practices, and coordinate with local farming communities.</p>
+                <div class="job-skills">
+                    <span class="job-skill-tag" data-key="organicFarmingSkill">Organic Farming</span>
+                    <span class="job-skill-tag" data-key="sustainableAgricultureSkill">Sustainable Agriculture</span>
+                    <span class="job-skill-tag" data-key="teamManagementSkill">Team Management</span>
+                    <span class="job-skill-tag" data-key="cropPlanningSkill">Crop Planning</span>
+                    <span class="job-skill-tag more-skills" data-key="plusOneMore">+1 more</span>
+                </div>
+                <div class="job-footer">
+                    <span class="job-salary" data-key="job5Salary">₹14,000.00 - ₹18,000.00 per month</span>
+                    <span class="application-deadline" data-key="job5Deadline">Application deadline: 1 week left</span>
+                    <div class="job-actions">
+                        <a href="#" class="apply-button" data-key="applyNow">Apply Now</a>
+                        <a href="#" class="details-button" data-key="details">Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Card 6 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <h3 class="job-title" data-key="job6Title">Full Stack Developer</h3>
+                    <span class="job-company" data-key="job6Company">Startup Goa Incubator</span>
+                    <span class="job-location" data-key="job6Location"><i class="fas fa-map-marker-alt mr-1"></i> Porvorim</span>
+                </div>
+                <div class="job-tags">
+                    <span class="job-tag" data-key="fullTimeTag">Full-time</span>
+                    <span class="job-tag" data-key="technologyTag">Technology</span>
+                    <span class="job-tag" data-key="experienceTag">2+ Years</span>
+                </div>
+                <p class="job-description" data-key="job6Desc">Develop web applications for local startups, working with modern tech stack and contributing to Goa's tech ecosystem.</p>
+                <div class="job-skills">
+                    <span class="job-skill-tag" data-key="reactJsSkill">React.js</span>
+                    <span class="job-skill-tag" data-key="nodeJsSkill">Node.js</span>
+                    <span class="job-skill-tag" data-key="mongoDbSkill">MongoDB</span>
+                    <span class="job-skill-tag" data-key="awsSkill">AWS</span>
+                    <span class="job-skill-tag more-skills" data-key="plusTwoMore">+2 more</span>
+                </div>
+                <div class="job-footer">
+                    <span class="job-salary" data-key="job6Salary">₹18,000.00 - ₹22,000.00 per year</span>
+                    <span class="application-deadline" data-key="job6Deadline">Application deadline: 15 days left</span>
+                    <div class="job-actions">
+                        <a href="#" class="apply-button" data-key="applyNow">Apply Now</a>
+                        <a href="#" class="details-button" data-key="details">Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Card 7 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <h3 class="job-title" data-key="job7Title">Hospitality Operations Intern</h3>
+                    <span class="job-company" data-key="job7Company">Taj Hotels - Goa</span>
+                    <span class="job-location" data-key="job7Location"><i class="fas fa-map-marker-alt mr-1"></i> Candolim</span>
+                </div>
+                <div class="job-tags">
+                    <span class="job-tag" data-key="internshipTag">Internship</span>
+                    <span class="job-tag" data-key="hospitalityTag">Hospitality</span>
+                    <span class="job-tag" data-key="experienceTag">Entry Level</span>
+                </div>
+                <p class="job-description" data-key="job7Desc">Gain hands-on experience in hotel operations, guest services, and hospitality management in a luxury resort setting.</p>
+                <div class="job-skills">
+                    <span class="job-skill-tag" data-key="customerServiceSkill">Customer Service</span>
+                    <span class="job-skill-tag" data-key="hotelOperationsSkill">Hotel Operations</span>
+                    <span class="job-skill-tag" data-key="guestRelationsSkill">Guest Relations</span>
+                    <span class="job-skill-tag" data-key="eventManagementSkill">Event Management</span>
+                    <span class="job-skill-tag more-skills" data-key="plusTwoMore">+2 more</span>
+                </div>
+                <div class="job-footer">
+                    <span class="job-salary" data-key="job7Salary">₹10,000.00 - ₹20,000.00 per month</span>
+                    <span class="application-deadline" data-key="job7Deadline">Application deadline: 30 days left</span>
+                    <div class="job-actions">
+                        <a href="#" class="apply-button" data-key="applyNow">Apply Now</a>
+                        <a href="#" class="details-button" data-key="details">Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Card 8 -->
+            <div class="job-card">
+                <div class="job-header">
+                    <h3 class="job-title" data-key="job8Title">Freelance Content Creator</h3>
+                    <span class="job-company" data-key="job8Company">Goa Content Collective</span>
+                    <span class="job-location" data-key="job8Location"><i class="fas fa-map-marker-alt mr-1"></i> Remote</span>
+                </div>
+                <div class="job-tags">
+                    <span class="job-tag" data-key="remoteTag">Remote</span>
+                    <span class="job-tag" data-key="contentTag">Content</span>
+                    <span class="job-tag" data-key="experienceTag">2+ Years</span>
+                </div>
+                <p class="job-description" data-key="job8Desc">Create engaging content about Goan culture, tourism, and lifestyle for various digital platforms and content marketing.</p>
+                <div class="job-skills">
+                    <span class="job-skill-tag" data-key="contentWritingSkill">Content Writing</span>
+                    <span class="job-skill-tag" data-key="socialMediaSkill">Social Media</span>
+                    <span class="job-skill-tag" data-key="photographySkill">Photography</span>
+                    <span class="job-skill-tag" data-key="videoEditingSkill">Video Editing</span>
+                    <span class="job-skill-tag more-skills" data-key="plusTwoMore">+2 more</span>
+                </div>
+                <div class="job-footer">
+                    <span class="job-salary" data-key="job8Salary">₹500.00 - ₹2,000.00 per piece</span>
+                    <span class="application-deadline" data-key="job8Deadline">Application deadline: 6 days left</span>
+                    <div class="job-actions">
+                        <a href="#" class="apply-button" data-key="applyNow">Apply Now</a>
+                        <a href="#" class="details-button" data-key="details">Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <!-- Column 1: Logo and Description -->
+            <div class="footer-column">
+                <div class="footer-logo-container">
+                    <div class="footer-logo-icon">G</div>
+                    <span class="footer-logo-text" data-key="footerLogoText">SkillConnect</span>
+                </div>
+                <p class="footer-description" data-key="footerDescription">
+                    Empowering Goan communities through quality education, skill development, and career opportunities aligned with sustainable development goals.
+                </p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-column">
+                <h4 class="footer-heading" data-key="quickLinksHeading">Quick Links</h4>
+                <div class="footer-links">
+                    <a href="#index.html" data-key="home">Home</a>
+                    <a href="#about.html" data-key="aboutUs">About Us</a>
+                    <a href="#courses.html" data-key="courses">Courses</a>
+                    <a href="#mentors.html" data-key="mentors">Mentors</a>
+                    <a href="#jobs.html" data-key="jobs">Jobs</a>
+                </div>
+            </div>
+
+            <!-- Column 3: Support -->
+            <div class="footer-column">
+                <h4 class="footer-heading" data-key="supportHeading">Support</h4>
+                <div class="footer-links">
+                    <a href="#" data-key="helpCenter">Help Center</a>
+                    <a href="#" data-key="privacyPolicy">Privacy Policy</a>
+                    <a href="#" data-key="termsOfService">Terms of Service</a>
+                    <a href="#contact.html" data-key="contactUs">Contact Us</a>
+                </div>
+            </div>
+
+            <!-- Column 4: Contact Info -->
+            <div class="footer-column">
+                <h4 class="footer-heading" data-key="contactInfoHeading">Contact Info</h4>
+                <div class="footer-links">
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i> <span data-key="contactEmail">hello@SkillConnect.com</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone-alt"></i> <span data-key="contactPhone">+91 832 XXXX XXXX</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i> <span data-key="contactAddress">Panaji, Goa, India</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p data-key="copyrightText">&copy; 2025 SkillCOnnect. All rights reserved. Committed to Quality Education (SDG 4).</p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript file -->
+    <script src="script.js"></script>
+</body>
+
+</html>

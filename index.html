@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillConnect</title>
+    <!-- Tailwind CSS CDN for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- External CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar relative">
+        <!-- Logo Section -->
+        <div class="logo-container">
+            <span class="logo-text" data-key="logoText"><span>S</span>killConnect</span>
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <div class="nav-links hidden md:flex items-center space-x-7">
+            <a href="index.html" data-key="home">Home</a>
+            <a href="about.html" data-key="aboutUs">About Us</a>
+            <a href="courses.html" data-key="courses">Courses</a>
+            <a href="mentors.html" data-key="mentors">Mentors</a>
+            <a href="jobs.html" data-key="jobs">Jobs</a>
+            <a href="contact.html" data-key="contact">Contact</a>
+
+            <!-- More Dropdown -->
+            <div class="more-dropdown">
+                <a href="#" class="dropbtn" data-key="more">More <i class="fas fa-caret-down ml-1"></i></a>
+                <div class="more-dropdown-content">                    
+                    <!-- Language Selection -->
+                    <div class="language-selector">
+                        <a href="#" class="lang-option" data-lang="en">English <i class="fas fa-check ml-1 text-blue-500 hidden" id="lang-check-en"></i></a>
+                        <a href="#" class="lang-option" data-lang="kok">कोंकणी <i class="fas fa-check ml-1 text-blue-500 hidden" id="lang-check-kok"></i></a>
+                        <a href="#" class="lang-option" data-lang="mr">मराठी <i class="fas fa-check ml-1 text-blue-500 hidden" id="lang-check-mr"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desktop Login Button -->
+        <div class="desktop-only-login hidden md:block">
+            <button class="login-button" data-key="login">Login</button>
+        </div>
+
+        <!-- Hamburger Menu Icon (Mobile) -->
+        <div class="hamburger-menu md:hidden" id="hamburger-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Mobile Navigation Links (Initially hidden, controlled by JS) -->
+        <div class="mobile-nav-links md:hidden" id="mobile-menu">
+            <a href="#index.html">Home</a>
+            <a href="#about.html">About Us</a>
+            <a href="#courses.html">Courses</a>
+            <a href="#mentors.html">Mentors</a>
+            <a href="#jobs.html">Jobs</a>
+            <a href="#contact.html">Contact</a>
+            <!-- Language Selection in Mobile -->
+            <div class="mobile-language-selector">
+                <a href="#" class="lang-option" data-lang="en">English <i class="fas fa-check ml-1 text-blue-500 hidden" id="mobile-lang-check-en"></i></a>
+                <a href="#" class="lang-option" data-lang="kok">कोंकणी <i class="fas fa-check ml-1 text-blue-500 hidden" id="mobile-lang-check-kok"></i></a>
+                <a href="#" class="lang-option" data-lang="mr">मराठी <i class="fas fa-check ml-1 text-blue-500 hidden" id="mobile-lang-check-mr"></i></a>
+            </div>
+            <a href="#" data-key="login">Login</a>
+        </div>
+    </nav>
+
+    <!--Hero Section-->
+    <section class="hero-section" id="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title" data-key="heroTitle">Unlock Your Potential: <span>Skill Up for Goa's Future!</span></h1>
+            <p class="hero-description" data-key="heroDescription">
+                Connecting Goan youth and adults with vocational training, mentorship, and career opportunities tailored for Goa's evolving economy.
+            </p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary" data-key="exploreCourses">
+                    <i class="fas fa-book-open mr-2"></i> Explore Courses <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#" class="btn btn-secondary" data-key="findMentor">
+                    <i class="fas fa-user-tie mr-2"></i> Find a Mentor <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-key="coursesCount">500+</div>
+                    <div class="stat-label" data-key="coursesLabel">Courses Available</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-key="mentatorsCount">150+</div>
+                    <div class="stat-label" data-key="mentatorsLabel">Expert Mentors</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-key="successCount">1000+</div>
+                    <div class="stat-label" data-key="successLabel">Success Stories</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <img src="images/Study Session by the Shore.png" alt="People learning on a beach" class="hero-image" id="heroImage">
+            <div class="image-overlay-tags">
+                <span data-key="newCourseTag">New Course</span>
+            </div>
+            <span class="image-overlay-bottom-left" data-key="sustainableFutureTag">Sustainable Future</span>
+        </div>
+    </section>
+
+    <section class="section-container" id="featured-courses-section">
+        <h2 class="section-title" data-key="featuredCoursesTitle">Featured Course Categories</h2>
+        <p class="section-description" data-key="featuredCoursesDescription">
+            Discover skills that matter for Goa's future. From sustainable tourism to digital innovation, find courses designed for local relevance and global impact.
+        </p>
+
+        <div class="course-grid">
+            <!-- Course Card 1: Sustainable Tourism Management -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="card-tag" data-key="tourismTag">Tourism</span>
+                    <i class="fas fa-tree card-icon tourism"></i>
+                </div>
+                <h3 class="course-title" data-key="sustainableTourismTitle">Sustainable Tourism Management</h3>
+                <p class="course-description" data-key="sustainableTourismDesc">
+                    Learn to develop eco-friendly tourism practices that preserve Goa's natural beauty while boosting local economy.
+                </p>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i> <span data-key="tourismDuration">8 weeks</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i> <span data-key="tourismLocation">Panaji</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-star text-yellow-400"></i> <span data-key="tourismRating">4.8</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-users"></i> <span data-key="tourismStudents">120</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="course-price" data-key="tourismPrice">₹2,499</span>
+                    <span class="card-tag" data-key="tourismLevel">Beginner</span>
+                    <a href="#" class="learn-more-btn" data-key="learnMore">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Course Card 2: Digital Marketing for Local Businesses -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="card-tag" data-key="digitalSkillsTag">Digital Skills</span>
+                    <i class="fas fa-laptop-code card-icon digital"></i>
+                </div>
+                <h3 class="course-title" data-key="digitalMarketingTitle">Digital Marketing for Local Businesses</h3>
+                <p class="course-description" data-key="digitalMarketingDesc">
+                    Master online marketing strategies to help Goan businesses reach global audiences while maintaining local charm.
+                </p>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i> <span data-key="digitalDuration">6 weeks</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-globe"></i> <span data-key="digitalMode">Online</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-star text-yellow-400"></i> <span data-key="digitalRating">4.9</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-users"></i> <span data-key="digitalStudents">95</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="course-price" data-key="digitalPrice">₹3,199</span>
+                    <span class="card-tag" data-key="digitalLevel">Intermediate</span>
+                    <a href="#" class="learn-more-btn" data-key="learnMore">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Course Card 3: Traditional Goan Craft Revival -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="card-tag" data-key="artsCraftsTag">Arts & Crafts</span>
+                    <i class="fas fa-brush card-icon arts"></i>
+                </div>
+                <h3 class="course-title" data-key="goanCraftTitle">Traditional Goan Craft Revival</h3>
+                <p class="course-description" data-key="goanCraftDesc">
+                    Preserve and modernize traditional Goan crafts with contemporary design and marketing techniques.
+                </p>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i> <span data-key="craftDuration">10 weeks</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i> <span data-key="craftLocation">Margao</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-star text-yellow-400"></i> <span data-key="craftRating">4.7</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-users"></i> <span data-key="craftStudents">78</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="course-price" data-key="craftPrice">₹1,799</span>
+                    <span class="card-tag" data-key="craftLevel">All Levels</span>
+                    <a href="#" class="learn-more-btn" data-key="learnMore">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Course Card 4: Marine Conservation & Research -->
+            <div class="course-card">
+                <div class="card-header">
+                    <span class="card-tag" data-key="environmentalTag">Environmental</span>
+                    <i class="fas fa-leaf card-icon environmental"></i>
+                </div>
+                <h3 class="course-title" data-key="marineConservationTitle">Marine Conservation & Research</h3>
+                <p class="course-description" data-key="marineConservationDesc">
+                    Develop skills in marine biology and conservation to protect Goa's coastal ecosystem.
+                </p>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <i class="fas fa-clock"></i> <span data-key="marineDuration">12 weeks</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i> <span data-key="marineLocation">Vasco da Gama</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-star text-yellow-400"></i> <span data-key="marineRating">4.9</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-users"></i> <span data-key="marineStudents">56</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="course-price" data-key="marinePrice">₹4,499</span>
+                    <span class="card-tag" data-key="marineLevel">Advanced</span>
+                    <a href="#" class="learn-more-btn" data-key="learnMore">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="view-all-btn" data-key="viewAllCourses">
+            View All Courses <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+    </section>
+
+    <section class="section-container" id="how-it-works-section">
+        <h2 class="section-title" data-key="howItWorksTitle">How It Works</h2>
+        <p class="section-description" data-key="howItWorksDescription">
+            Your journey to skill mastery and career success starts here. Follow these simple steps to unlock your potential.
+        </p>
+
+        <div class="steps-grid">
+            <!-- Step 1: Discover Courses -->
+            <div class="step-card">
+                <span class="step-number">1</span>
+                <div class="step-icon-container">
+                    <i class="fas fa-search step-icon search"></i>
+                </div>
+                <h3 class="step-title" data-key="discoverCoursesTitle">Discover Courses</h3>
+                <p class="step-description" data-key="discoverCoursesDesc">
+                    Browse our comprehensive catalog of skills-based courses tailored for Goa's unique opportunities.
+                </p>
+            </div>
+
+            <!-- Step 2: Connect with Mentors -->
+            <div class="step-card">
+                <span class="step-number">2</span>
+                <div class="step-icon-container">
+                    <i class="fas fa-users step-icon connect"></i>
+                </div>
+                <h3 class="step-title" data-key="connectMentorsTitle">Connect with Mentors</h3>
+                <p class="step-description" data-key="connectMentorsDesc">
+                    Get paired with experienced professionals who guide your learning journey and career path.
+                </p>
+            </div>
+
+            <!-- Step 3: Build Your Portfolio -->
+            <div class="step-card">
+                <span class="step-number">3</span>
+                <div class="step-icon-container">
+                    <i class="fas fa-award step-icon portfolio"></i>
+                </div>
+                <h3 class="step-title" data-key="buildPortfolioTitle">Build Your Portfolio</h3>
+                <p class="step-description" data-key="buildPortfolioDesc">
+                    Earn micro-credentials and build a digital portfolio showcasing your newly acquired skills.
+                </p>
+            </div>
+
+            <!-- Step 4: Find Opportunities -->
+            <div class="step-card">
+                <span class="step-number">4</span>
+                <div class="step-icon-container">
+                    <i class="fas fa-briefcase step-icon opportunities"></i>
+                </div>
+                <h3 class="step-title" data-key="findOpportunitiesTitle">Find Opportunities</h3>
+                <p class="step-description" data-key="findOpportunitiesDesc">
+                    Access our job board featuring opportunities from local employers who value SkillConnect credentials.
+                </p>
+            </div>
+        </div>
+
+        <a href="#" class="ready-btn" data-key="readyToStart">
+            Ready to start your journey? <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <!-- Column 1: Logo and Description -->
+            <div class="footer-column">
+                <div class="footer-logo-container">
+                    <div class="footer-logo-icon">G</div>
+                    <span class="footer-logo-text" data-key="footerLogoText">SkillConnect</span>
+                </div>
+                <p class="footer-description" data-key="footerDescription">
+                    Empowering Goan communities through quality education, skill development, and career opportunities aligned with sustainable development goals.
+                </p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-column">
+                <h4 class="footer-heading" data-key="quickLinksHeading">Quick Links</h4>
+                <div class="footer-links">
+                    <a href="#index.html" data-key="home">Home</a>
+                    <a href="#about.html" data-key="aboutUs">About Us</a>
+                    <a href="#courses.html" data-key="courses">Courses</a>
+                    <a href="#mentors.html" data-key="mentors">Mentors</a>
+                    <a href="#jobs.html" data-key="jobs">Jobs</a>
+                </div>
+            </div>
+
+            <!-- Column 3: Support -->
+            <div class="footer-column">
+                <h4 class="footer-heading" data-key="supportHeading">Support</h4>
+                <div class="footer-links">
+                    <a href="#" data-key="helpCenter">Help Center</a>
+                    <a href="#" data-key="privacyPolicy">Privacy Policy</a>
+                    <a href="#" data-key="termsOfService">Terms of Service</a>
+                    <a href="#contact.html" data-key="contactUs">Contact Us</a>
+                </div>
+            </div>
+
+            <!-- Column 4: Contact Info -->
+            <div class="footer-column">
+                <h4 class="footer-heading" data-key="contactInfoHeading">Contact Info</h4>
+                <div class="footer-links">
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i> <span data-key="contactEmail">hello@SkillConnect.com</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone-alt"></i> <span data-key="contactPhone">+91 832 XXXX XXXX</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i> <span data-key="contactAddress">Panaji, Goa, India</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p data-key="copyrightText">&copy; 2025 SkillCOnnect. All rights reserved. Committed to Quality Education (SDG 4).</p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
